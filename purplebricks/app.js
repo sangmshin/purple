@@ -3,11 +3,13 @@ const express = require('express')
 const app = express();
 const bodyParser = require('body-parser');
 var compression = require('compression')
+var cors = require('cors');
+
 var helmet = require('helmet')
 const path = require('path')
 var PORT = process.env.PORT || 8000
 
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
@@ -19,7 +21,7 @@ app.use(helmet())
 
 
 // STATIC FOLDER
-app.use(express.static(path.join(__dirname, 'purplebricks/build')))
+app.use(express.static(path.join(__dirname, 'purplebricks-react/build')))
 
 
 // ROUTES
