@@ -1,0 +1,27 @@
+{
+  "name": "express.js-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "author": "Sang Min Shin",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "hbs": "^4.0.1",
+    "nodemon": "^1.18.3",
+    "path": "^0.12.7",
+    "pug": "^2.0.3",
+    "reload": "^2.3.0"
+  },
+  "dependencies": {
+    "compression": "^1.7.3",
+    "helmet": "^3.13.0"
+  }
+}
