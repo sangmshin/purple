@@ -4,7 +4,7 @@ import {
   RESET_SEARCH_PAGE
 } from '../actions/actionTypes';
 import _ from 'lodash';
-// export default (state={}, {type, payload}) => type === GET_SEARCH_PAGE ? payload.data : state
+
 
 export default (state = [], {
   type,
@@ -16,9 +16,19 @@ export default (state = [], {
       return payload.data.results
 
     case GET_SEARCH_RESULTS:
-      return _.filter(payload.data.results, {
+      let results = _.filter(payload.data.results, {
         'state': payload.state.toUpperCase()
       })
+      
+      const errorMessage = 'Sorry, no listings matched your search and filter criteria'
+      
+      return results.length === 0
+      ? [errorMessage]
+      : results
+      // console.log('REDUCER', _.filter(payload.data.results, {
+      //   'state': payload.state.toUpperCase()
+      // }).length)
+      // return results
       // return [...payload.data.results.filter(list=> list.state === payload.state.toUpperCase())]
 
     case RESET_SEARCH_PAGE:

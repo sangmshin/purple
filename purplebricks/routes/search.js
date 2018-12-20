@@ -2,9 +2,11 @@ const express = require('express')
 const router = express.Router();
 const axios = require('axios')
 
-const LISTING_API = 'https://api.purplebricks.com/listing-search/api/v2/Search/'
+const listing_api = 'https://api.purplebricks.com/listing-search/api/v2/Search/'
+
+
 router.get('/search', (req, response) => {
-  axios.post(LISTING_API, {
+  axios.post(listing_api, {
     "page": 5,
     "numberOfBeds": 0,
     "numberOfBaths": 0,
@@ -51,8 +53,7 @@ router.get('/listing/:id', (req, response) => {
     }
   }).then(res => response.json(res.data))
 })
-router.get('/hello', (req, res) => {
-  res.json('hello from the otherside.')
-})
+
+
 
 module.exports = router;

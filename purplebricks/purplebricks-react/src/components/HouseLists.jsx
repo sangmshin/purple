@@ -2,6 +2,7 @@ import React, { Component,  Fragment }from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { searchPage } from "../actions/getSearchPageAction";
+import {  Row, Grid,  } from "react-bootstrap";
 import List from './List';
 
 class HouseLists extends Component{
@@ -22,11 +23,18 @@ class HouseLists extends Component{
 
     return (
       <Fragment>
-        {
-          data && data.map( list => (
-            <List key={list.listingId} detail={list}/>
-          ))
-        }
+        <Grid fluid>
+          <Row>
+          {
+            data && typeof data[0] === 'object' 
+            ? data.map( list => (
+              <List key={list.listingId} detail={list}/>
+            ))
+            : typeof data[0] === 'string'
+            ? <h1 className='text-center'>{data[0]}</h1> : null
+          }
+          </Row>
+        </Grid>
       </Fragment>
     )
   }

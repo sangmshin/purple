@@ -1,15 +1,21 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom';
 import SearchBox from './components/SearchBox';
 import HouseLists from './components/HouseLists';
-import './App.css';
+import SingleList from './components/SingleList/SingleList';
 
 
-class App extends Component {
-  render=()=> 
+const App =()=>
+  <Router>
     <Fragment>
       <SearchBox/>
-      <HouseLists/>
+      <Switch>
+        <Route exact={true} path='/' component={HouseLists} />
+        <Route path='/listing/:id' component={SingleList} />
+      </Switch> 
+      {/* <HouseLists/> */}
     </Fragment>
-}
+  </Router>
+
 
 export default App;

@@ -11,19 +11,32 @@ class SearchBox extends PureComponent{
     super(props)
     this.state = {
       stateName: '',
+      isDisabled: true
     }
   }
 
   onChangeInput =(e)=>{
-    this.setState({stateName: e.target.value})
+    this.setState({stateName: e.target.value}, 
+    ()=>{
+      this.state.stateName.trim().length > 0
+      ? this.setState({isDisabled: false})
+      : this.setState({isDisabled: true})
+    })
+    
   }
 
   onReset =()=> 
-    this.setState({stateName: ''}, ()=>this.props._resetSearchPage())
+    this.setState({stateName: '', isDisabled: true}, 
+      ()=> this.props._resetSearchPage()
+    )
 
   onSubmitForm =(e)=>{
     e.preventDefault()
     this.props._getResults(this.state.stateName)
+  }
+
+  componentDidUpdate(prevProps){
+    console.log('from CDU: ', prevProps);
     
   }
 
@@ -32,7 +45,7 @@ class SearchBox extends PureComponent{
       <div>
         <form action="" onSubmit={this.onSubmitForm}>
           <input type="text" name='state' value={this.state.stateName} onChange={this.onChangeInput}/>
-          <input type="submit" value='UPDATE'/>
+          <input type="submit" value='UPDATE' disabled={this.state.isDisabled}/>
         </form>
         <button onClick={this.onReset}>RESET</button>
       </div>

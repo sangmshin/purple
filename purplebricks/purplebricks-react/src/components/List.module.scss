@@ -1,0 +1,13 @@
+.img-responsive{
+  width: 100%;
+}
+@media(min-width:1800px){
+  .listing{
+    width: 25%;
+  }
+}
+@media(max-width:768px){
+  .listing{
+    width: 100%;
+  }
+}
