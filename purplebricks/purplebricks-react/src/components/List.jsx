@@ -35,12 +35,17 @@ class List extends PureComponent{
   }
 
   static propTypes = {
-    detail: PropTypes.shape({
+
+    detail: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
       listingId: PropTypes.string.isRequired,
       images: PropTypes.array.isRequired,
       streetName: PropTypes.string.isRequired,
       state: PropTypes.string.isRequired,
       }).isRequired
+    ])
+
   }
 }
 

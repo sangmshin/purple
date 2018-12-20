@@ -24,6 +24,7 @@
     "compression": "^1.7.3",
     "cors": "^2.8.5",
     "helmet": "^3.13.0",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "react-router": "^4.3.1"
   }
 }

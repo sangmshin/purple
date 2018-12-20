@@ -14,7 +14,9 @@ const enhancer = compose(
   persistState(getDebugSessionKey())
 );
 
-const initialState = {};
+const initialState = {
+  isBackToSearch: false
+};
 
 // INITIALIZE STORE
 export const store = createStore(rootReducers, initialState, enhancer);

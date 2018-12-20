@@ -13,16 +13,21 @@ class SingleList extends Component{
   }
 
   componentDidMount(){
-    this.props.singleData.images &&
-    console.log(this.props.singleData.images.length);
+
+  }
+  componentWillUnmount(){
+    console.log('SingleList: unmounted  ');
+    
   }
 
   render(){
-    console.log('Single List: ', this.props.singleData.images);
+    console.log('Single List: ', this.props);
     const { singleData } = this.props
     
     return singleData &&  
       <Fragment>
+        {/* <button onClick={()=>this.context.router.history.push('/')}>go back:history.push</button> */}
+        <button onClick={this.context.router.history.goBack}>go back: history.goBack</button>
         <div>
           <HeroImage imgsrc={singleData.images && singleData.images[0].desktopFullSizeRetina}/>
           <p>Listing Id: {singleData.listingId}</p>
@@ -32,6 +37,10 @@ class SingleList extends Component{
           <p>Listing Status: {singleData.listingStatus}</p>
         </div>
       </Fragment>
+  }
+
+  static contextTypes = {
+    router: PropTypes.object.isRequired, 
   }
 
   static propTypes = {

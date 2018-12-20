@@ -24,7 +24,7 @@ export default (state = [], {
       
       return results.length === 0
       ? [errorMessage]
-      : results
+      : [...results, payload.state]
       // console.log('REDUCER', _.filter(payload.data.results, {
       //   'state': payload.state.toUpperCase()
       // }).length)
