@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom';
-// import SearchBox from './components/SearchBox';
 import HouseLists from './components/HouseLists';
 import SingleList from './components/SingleList/SingleList';
-
+import Header from './components/Header';
 
 const App =()=>
   <Router>
     <Fragment>
-      {/* <SearchBox/> */}
+      <Header/>
       <Switch>
         <Route exact={true} path='/' component={HouseLists} />
         <Route path='/listing/:id' component={SingleList} />

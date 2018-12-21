@@ -22,25 +22,6 @@ router.get('/search', (req, response) => {
   }).then(res => response.json(res.data))
 })
 
-// router.get('/search/:query', (req, response) => {
-//   let query = req.params.query
-//   console.log(query)
-//   axios.post('https://api.purplebricks.com/listing-search/api/v2/Search', {
-//     "query": `${query},USA`,
-//     "page": 1,
-//     "numberOfBeds": 0,
-//     "numberOfBaths": 0,
-//     "maxPrice": 700000,
-//     "minPrice": 50000,
-//     "pageSize": 12
-//   }, {
-//     headers: {
-//       'crossDomain': true,
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//     }
-//   }).then(res => response.json(res.data))
-// })
 
 router.get('/listing/:id', (req, response) => {
   let listingId = req.params.id

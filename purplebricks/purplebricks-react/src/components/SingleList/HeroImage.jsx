@@ -1,4 +1,4 @@
-import { Col,  Image } from "react-bootstrap";
+import {  Image } from "react-bootstrap";
 import PropTypes from "prop-types";
 import React, { Component, Fragment }from 'react';
 
@@ -16,6 +16,10 @@ class HeroImage extends Component{
         <Image src={this.props.imgsrc} className='img-responsive'/>
       </Fragment>
     )
+  }
+
+  static propTypes={
+    imgsrc: PropTypes.string
   }
 }
 

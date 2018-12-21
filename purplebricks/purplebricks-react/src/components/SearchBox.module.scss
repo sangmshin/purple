@@ -1,0 +1,42 @@
+.form__wrapper {
+  max-width: 500px;
+  margin: 20px auto;
+
+  .form_content {
+
+    // display: flex;
+    .inputfield {
+      width: 500px;
+    }
+
+    button {
+      width: 500px;
+      ;
+    }
+  }
+
+  .resetBtn {
+    width: 500px;
+    ;
+  }
+}
+
+@media(max-width:550px){
+  .form__wrapper {
+  max-width: 100%;
+  .form_content {
+
+    .inputfield {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+  .resetBtn {
+    width: 100%;
+  }
+}
+}

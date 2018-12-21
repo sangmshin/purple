@@ -1,0 +1,55 @@
+.backBtn {
+  cursor: pointer;
+  padding: 20px;
+  color: #582668;
+  position: relative;
+  display: inline-block;
+}
+
+.single {
+
+  .hero__wrapper {
+    margin-bottom: 50px;
+
+    .status {
+      background-color: #dd3260;
+      padding: 20px 30px 20px 20px;
+      color: aliceblue;
+      font-weight: 700;
+      display: flex;
+      position: absolute;
+      top: 165px;
+    }
+  }
+
+  .textContent {
+    padding: 0px 40px 40px;
+    @media(max-width:500px){
+      padding: 0px 20px 40px;
+    }
+    .price{
+      color: #582668;
+      font-size: 49px;
+    }
+    .bookBtn {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      padding: 20px 50px;
+    }
+
+    .desc {
+      margin-bottom: 50px;
+
+      .desc_text {
+        color: #555;
+        font-size: 16px;
+      }
+    }
+
+    .features {
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}

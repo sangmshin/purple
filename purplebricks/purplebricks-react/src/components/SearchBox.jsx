@@ -4,8 +4,10 @@ import { connect } from "react-redux";
 import { getResults } from "../actions/getSearchResultsAction";
 import { resetSearchPage } from "../actions/resetSearchPageAction";
 import { backToSearchAction } from "../actions/backToSearchAction";
-// import { Col, Row, Grid } from "react-bootstrap";
-// import "../styles.css";
+import ReactDOM from 'react-dom';
+import { Button, FormGroup, FormControl, HelpBlock } from "react-bootstrap";
+import sty from './SearchBox.module.scss';
+
 
 class SearchBox extends Component{
   constructor(props){
@@ -31,26 +33,27 @@ class SearchBox extends Component{
       ()=> this.props._resetSearchPage()
     )
 
+  getValidationState() {
+    const length = this.state.stateName.length;
+    if (length === 2) return 'success';
+    else if (length > 2) return 'error';
+    // else if (length < 1) return 'error';
+    return null;
+  }
+
   onSubmitForm =(e)=>{
-    console.log('submitted');
-    
     e.preventDefault()
     this.props._getResults(this.state.stateName)
   }
-  componentDidMount(){
-    console.log('this.props.isBackToSearch----', this.props.isBackToSearch);
-    
-    this.props.isBackToSearch &&
-    this.setState({stateName: this.props.data[this.props.data.length-1]})
-  }
 
-  componentDidUpdate(prevProps){
-    console.log('from CDU: ', prevProps);
-    
-  }
-  componentWillUnmount(){
-    console.log('unmounted');
-    
+  componentDidMount(){
+    !this.props.isBackToSearch &&
+    ReactDOM.findDOMNode(this.myinput).focus()
+
+    let prevStateName = this.props.data[this.props.data.length-1]
+    this.props.isBackToSearch && typeof prevStateName === 'string' 
+    &&
+    this.setState({stateName: prevStateName})
   }
   
   render(){
@@ -59,22 +62,23 @@ class SearchBox extends Component{
 
     return(
       <Fragment>
-        <div>
-          <form action="" onSubmit={this.onSubmitForm}>
-            <input type="text" name='state' value={this.state.stateName} onChange={this.onChangeInput}/>
-            <input type="submit" value='UPDATE' disabled={this.state.isDisabled}/>
+        <div className={sty.form__wrapper}>
+          <form autoFocus={true} onSubmit={this.onSubmitForm}>
+          <FormGroup controlId="formBasicText" validationState={this.getValidationState()} className={sty.form_content}>
+            <FormControl ref={input=> this.myinput = input} type="text" name='state' value={this.state.stateName}
+            placeholder="Search by State"
+            onChange={this.onChangeInput} bsSize='lg' className={sty.inputfield}/>
+            <FormControl.Feedback />
+            <HelpBlock>State name must be two-letter. (e.g., CA)</HelpBlock>
+            <Button bsStyle='primary' bsSize='lg' type='submit' disabled={this.state.isDisabled}>UPDATE</Button>
+          </FormGroup>
           </form>
-          <button onClick={()=>this.context.router.history.push('/')}>go back:history.push</button>
-          <button onClick={this.context.router.history.goBack}>go back: history.goBack</button>
-          <button onClick={this.onReset}>RESET</button>
+          <Button className={sty.resetBtn} bsSize='sm' onClick={this.onReset}>RESET</Button>
         </div>
       </Fragment>
     )
   }
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired, 
-  }
 }
 
 SearchBox.propTypes = {
