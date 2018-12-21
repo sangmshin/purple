@@ -2,22 +2,32 @@ import React, { Component, Suspense, lazy  } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getSingleList } from "../../actions/getSingleListAction";
+import { clearSingleDataAction } from "../../actions/clearSingleDataAction";
 import { Col, Row, Grid,  Button } from "react-bootstrap";
 import sty from './SingleList.module.scss';
 import { RiseLoader } from 'react-spinners';
+import _ from 'lodash';
+
 
 const HeaderImg = lazy(()=> import ('./HeroImage'))
 
 class SingleList extends Component{
   constructor(props){
     super(props)
-    this.state = {loading: true}
+    this.state = { loading: true }
+  }
+
+  componentWillUnmount(){
+    // empty singleData so that when revisiting the page there is no previous listing showing in a split second
+    this.props._clearSingleData()
   }
 
   render(){
+
+    let dataSize = _.size(this.props.singleData)
     const { singleData } = this.props
     
-    return singleData &&  
+    return singleData && dataSize > 0 &&  
       <Grid>
         <Row>
         <h4 onClick={()=>this.context.router.history.push('/')} className={sty.backBtn}> &#8678; BACK TO SEARCH RESULTS</h4>
@@ -89,11 +99,13 @@ class SingleList extends Component{
 
   static propTypes = {
     _getSingleList: PropTypes.func.isRequired,
+    _clearSingleData: PropTypes.func.isRequired,
     singleData: PropTypes.object.isRequired,
   };
   
   static defaultProps = {
     _getSingleList: e => {},
+    _clearSingleData: e => {},
   };
 }
 
@@ -105,6 +117,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {
   _getSingleList: getSingleList,
+  _clearSingleData: clearSingleDataAction,
 };
 
 export default connect(

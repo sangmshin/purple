@@ -1,15 +1,15 @@
 import {
   GET_SINGLE_LIST
 } from './actionTypes';
-import Axios from 'axios';
+import axios from 'axios';
 
+const listing_API = "http://localhost:8000/listing/";
+const listing_API_prod = "http://purplebricks.us-east-1.elasticbeanstalk.com/listing/";
 
 export function getSingleList(id) {
   return dispatch => {
-    return Axios.get(`https://api.purplebricks.com/listing-details/api/v2/listing/${id}`, {
+    return axios.get( listing_API_prod + id, {
         headers: {
-          'Access-Control-Allow-Credentials': true,
-          'Access-Control-Allow-Origin': '*',
           'crossDomain': true,
           'Content-Type': 'application/json',
           'Accept': 'application/json',

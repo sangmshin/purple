@@ -9,7 +9,7 @@ const search_API_prod = 'http://purplebricks.us-east-1.elasticbeanstalk.com/sear
 export function getResults(state) {
   return dispatch => {
     return axios
-      .get(search_API, {
+      .get(search_API_prod, {
         headers: {
           'crossDomain': true,
           'Content-Type': 'application/json',

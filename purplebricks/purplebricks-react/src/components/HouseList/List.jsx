@@ -22,7 +22,11 @@ class List extends PureComponent{
     return (
       <Fragment>
         <Col xs={6} sm={6} md={6} lg={4} className={sty.listing}>
-          <Link to={`/listing/${detail.listingId}`} onClick={()=>this.listingClick(detail.listingId)} className={sty.list}>
+          <Link 
+          to={`/listing/${detail.listingId}`} 
+          onClick={()=>this.listingClick(detail.listingId)} 
+          className={sty.list}
+          >
           <div className={sty.list__wrapper}>
             <Image src={detail.images && detail.images[0].smallRetina}  className='img-responsive'></Image>
             <div className={sty.desc__wrapper}>
