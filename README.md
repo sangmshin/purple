@@ -8,6 +8,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## >> How to run this app locally in development mode
 
+(The app has already been built/bundled to './build' folder so all you actually need to do is step 1)
+
 1. cd to 'purple/purplebricks' folder and run
 
 ### `npm start`
