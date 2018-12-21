@@ -5,6 +5,8 @@ import axios from "axios";
 
 
 const search_API = "http://localhost:8000/search/";
+const search_API_prod = 'http://purplebricks.us-east-1.elasticbeanstalk.com/search'
+
 
 export function resetSearchPage() {
   return dispatch => {
