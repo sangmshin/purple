@@ -62,3 +62,4 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 1. If I had more time, I would have fully incorporated node/express to react app so that I can bypass CORS issues. 
 2. I could have done carousel images or gallery for the listings
 3. There is glitch when you go back to search results and click to go to individual listing. You will see in a split second previous content. I would like to fix this if I have more time.
+4. Now, you need to click one of listings from search results to view individual list. But when you go directly to individual listing url such as '/listing/03oyy8', most of the contents are missing, because react/redux doesn't make an api call to get json object. If I had more time, I would like to make it so that even when you go directly individual listing you redux can get data from api.
