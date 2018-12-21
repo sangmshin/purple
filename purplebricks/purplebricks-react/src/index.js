@@ -1,15 +1,16 @@
-import React, {StrictMode} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import './index.scss';
 import {store} from './redux-store/store';
 import App from './App';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 ReactDOM.render(
-  <Provider store={store}>
-    {/* <StrictMode> */}
+  <ErrorBoundary>
+    <Provider store={store}>
       <App />
-    {/* </StrictMode> */}
-  </Provider>
+    </Provider>
+  </ErrorBoundary>
 , document.getElementById('root'));
 

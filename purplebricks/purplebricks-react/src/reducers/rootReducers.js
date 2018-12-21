@@ -1,4 +1,3 @@
-// import data from "./getSearchResultsReducer";
 import data from "./getSearchPageReducer";
 import singleData from "./getSingleListReducer";
 import isBackToSearch from "./backToSearchReducer";

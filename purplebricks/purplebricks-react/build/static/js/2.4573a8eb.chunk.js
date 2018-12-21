@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{370:function(e,n,a){"use strict";a.r(n);var r=a(369),s=a(0),t=a.n(s);n.default=function(e){var n=e.imgsrc;return t.a.createElement(s.Fragment,null,t.a.createElement(r.a,{src:n,className:"img-responsive"}))}}}]);
+//# sourceMappingURL=2.4573a8eb.chunk.js.map

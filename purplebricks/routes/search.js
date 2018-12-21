@@ -23,17 +23,17 @@ router.get('/search', (req, response) => {
 })
 
 
-router.get('/listing/:id', (req, response) => {
-  let listingId = req.params.id
-  console.log(listingId)
-  axios.get(`https://api.purplebricks.com/listing-details/api/v2/listing/${listingId}`, {
-    headers: {
-      'crossDomain': true,
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  }).then(res => response.json(res.data))
-})
+// router.get('/listing/:id', (req, response) => {
+//   let listingId = req.params.id
+//   console.log(listingId)
+//   axios.get(`https://api.purplebricks.com/listing-details/api/v2/listing/${listingId}`, {
+//     headers: {
+//       'crossDomain': true,
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//     }
+//   }).then(res => response.json(res.data))
+// })
 
 
 

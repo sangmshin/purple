@@ -1,0 +1,19 @@
+.eb__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 99vh;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  .error_boundary {
+    border: 1px solid #e1e1e1;
+    border-radius: 20px;
+    padding: 50px 50px;
+    line-height: 30px;
+    background-color: #f5f5f5;
+    font-style: italic;
+    color: #999;
+    font-family: 'SimplonNorm-Light'
+  }
+}

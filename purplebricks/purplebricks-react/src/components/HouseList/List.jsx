@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 import sty from './List.module.scss';
 import { connect } from "react-redux";
-import { getSingleList } from "../actions/getSingleListAction";
+import { getSingleList } from "../../actions/getSingleListAction";
 
 class List extends PureComponent{
   constructor(props){
@@ -71,13 +71,14 @@ class List extends PureComponent{
     ])
 
   }
+  
+  static defaultProps = {
+    _getSingleList: e => {},
+  };
 }
 
 
 
-List.defaultProps = {
-  _getSingleList: e => {},
-};
 
 const mapStateToProps = state => ({
   singleData: state.singleData,

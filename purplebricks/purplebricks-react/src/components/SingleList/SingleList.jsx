@@ -1,19 +1,20 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Suspense, lazy  } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getSingleList } from "../../actions/getSingleListAction";
-import { Col, Row, Grid, Image, Button } from "react-bootstrap";
-import HeroImage from './HeroImage';
+import { Col, Row, Grid,  Button } from "react-bootstrap";
 import sty from './SingleList.module.scss';
+import { RiseLoader } from 'react-spinners';
+
+const HeaderImg = lazy(()=> import ('./HeroImage'))
 
 class SingleList extends Component{
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {loading: true}
   }
 
   render(){
-    console.log('Single List: ', this.props);
     const { singleData } = this.props
     
     return singleData &&  
@@ -22,7 +23,19 @@ class SingleList extends Component{
         <h4 onClick={()=>this.context.router.history.push('/')} className={sty.backBtn}> &#8678; BACK TO SEARCH RESULTS</h4>
         <div className={sty.single}>
           <div className={sty.hero__wrapper}>
-            <HeroImage className={sty.hero_img} imgsrc={singleData.images && singleData.images[0].desktopFullSizeRetina}/>
+            <Suspense fallback={
+              <div className='spinner'>
+                <RiseLoader
+                  sizeUnit={"px"}
+                  size={10}
+                  margin={'50px'}
+                  color={'#582668'}
+                  loading={this.state.loading}
+                />
+              </div>
+            }>
+              <HeaderImg className={sty.hero_img} imgsrc={singleData.images && singleData.images[0].desktopFullSizeRetina}/>
+            </Suspense>
             <p className={sty.status}>Listing Status: {singleData.listingStatus}</p>
           </div>
           <div className={sty.textContent}>
@@ -78,12 +91,13 @@ class SingleList extends Component{
     _getSingleList: PropTypes.func.isRequired,
     singleData: PropTypes.object.isRequired,
   };
+  
+  static defaultProps = {
+    _getSingleList: e => {},
+  };
 }
 
 
-SingleList.defaultProps = {
-  _getSingleList: e => {},
-};
 
 const mapStateToProps = state => ({
   singleData: state.singleData,

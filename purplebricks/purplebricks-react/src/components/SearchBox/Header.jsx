@@ -1,6 +1,6 @@
 import React from 'react';
 import '../static/pb-logo-light.svg'
-import pb_logo from '../static/pb-logo-light.svg'
+import pb_logo from '../../static/pb-logo-light.svg'
 import {Grid, Row, Col, Image} from 'react-bootstrap';
 import sty from './Header.module.scss';
 

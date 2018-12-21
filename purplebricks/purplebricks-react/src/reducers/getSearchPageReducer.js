@@ -25,11 +25,6 @@ export default (state = [], {
       return results.length === 0
       ? [errorMessage]
       : [...results, payload.state]
-      // console.log('REDUCER', _.filter(payload.data.results, {
-      //   'state': payload.state.toUpperCase()
-      // }).length)
-      // return results
-      // return [...payload.data.results.filter(list=> list.state === payload.state.toUpperCase())]
 
     case RESET_SEARCH_PAGE:
       return payload.data.results
