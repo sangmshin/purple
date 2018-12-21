@@ -39,7 +39,7 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
 ## >> Deploy/Live
 
-You view this app here:
+This app can be viewed here:
 http://purplebricks.us-east-1.elasticbeanstalk.com/
 
 It is deployed to AWS Elastic Beanstalk as a node.js wep-app
