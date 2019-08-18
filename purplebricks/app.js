@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 var compression = require('compression')
 var cors = require('cors');
-
+const dotenv = require('dotenv').config()
 var helmet = require('helmet')
 const path = require('path')
 var PORT = process.env.PORT || 8000

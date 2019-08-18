@@ -8,7 +8,7 @@ const listing_API_prod = "http://purplebricks.us-east-1.elasticbeanstalk.com/lis
 
 export function getSingleList(id) {
   return dispatch => {
-    return axios.get( listing_API_prod + id, {
+    return axios.get( listing_API + id, {
         headers: {
           'crossDomain': true,
           'Content-Type': 'application/json',

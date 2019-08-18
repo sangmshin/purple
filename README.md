@@ -1,4 +1,4 @@
-# Purplebricks assessment:
+# Purplebricks hotel search app:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -41,16 +41,11 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
 ## >> Deploy/Live
 
-This app can be viewed here:
+This app can be viewed here: (I took it down from EB so the link will not work. sorry)
 http://purplebricks.us-east-1.elasticbeanstalk.com/
 
 It is deployed to AWS Elastic Beanstalk as a node.js wep-app
 
-
-## >> Decisions and more time.
-
-1. I could have done carousel images or gallery for the listings
-2. Now, you need to click one of listings from search results to view individual list. But when you go directly to individual listing url such as '/listing/03oyy8', most of the contents are missing, because react/redux doesn't make an api call to get json object. If I had more time, I would like to make it so that even when you go directly individual listing you redux can get data from api.
 
 ## >> Notable Packages & Libraries that I use
 
