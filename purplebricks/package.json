@@ -25,7 +25,7 @@
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "helmet": "^3.13.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "react-router": "^4.3.1",
     "react-spinner": "^0.2.7"
   }
